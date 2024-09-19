@@ -7,10 +7,10 @@ import { readLocalStorage, writeLocalStorage } from "@/services/local-storage";
 export function TodoApp() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const LOCAL_STORAGE_KEY = "_TASKS";
+  const TODO_KEY = "_TASKS";
 
   useEffect(() => {
-    const tasks = readLocalStorage(LOCAL_STORAGE_KEY);
+    const tasks = readLocalStorage(TODO_KEY);
     setTasks(tasks);
   }, []);
 
@@ -19,7 +19,7 @@ export function TodoApp() {
       const newTaskObj = { id: Date.now(), text: newTask, completed: false };
       const updatedTasks = [...tasks, newTaskObj];
       setTasks(updatedTasks);
-      writeLocalStorage(LOCAL_STORAGE_KEY, updatedTasks);
+      writeLocalStorage(TODO_KEY, updatedTasks);
       setNewTask("");
     }
   };
@@ -29,7 +29,7 @@ export function TodoApp() {
       task.id === id ? { ...task, completed: !task.completed } : task
     );
     setTasks(updatedTasks);
-    writeLocalStorage(LOCAL_STORAGE_KEY, updatedTasks);
+    writeLocalStorage(TODO_KEY, updatedTasks);
   };
 
   const editTask = (id, newText) => {
@@ -37,13 +37,13 @@ export function TodoApp() {
       task.id === id ? { ...task, text: newText } : task
     );
     setTasks(updatedTasks);
-    writeLocalStorage(LOCAL_STORAGE_KEY, updatedTasks);
+    writeLocalStorage(TODO_KEY, updatedTasks);
   };
 
   const deleteTask = (id) => {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
-    writeLocalStorage(LOCAL_STORAGE_KEY, updatedTasks);
+    writeLocalStorage(TODO_KEY, updatedTasks);
   };
 
   return (
