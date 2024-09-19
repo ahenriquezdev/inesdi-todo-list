@@ -48,3 +48,43 @@ Esta es una aplicación simple y funcional de tareas (TODO), construida con **Re
 - `src/components/`: Contiene los componentes `TodoApp`, `TodoList`.
 - `src/services/local-storage.js`: Funciones utilitarias para leer y escribir tareas en `localStorage`.
 - `public/`: Contiene los activos estáticos del proyecto.
+
+## Características adicionales en la rama `featureLogin`
+
+La rama `featureLogin` incluye una nueva funcionalidad de **login** que permite a los usuarios autenticarse antes de acceder a la lista de tareas. La autenticación se gestiona mediante un formulario de login y la API pública de [Reqres](https://reqres.in/).
+
+### Cómo acceder a la rama `featureLogin`:
+
+1. Cambia a la rama `featureLogin`:
+
+    ```bash
+    git checkout featureLogin
+    ```
+
+2. Instala las dependencias:
+
+    ```bash
+    npm install
+    ```
+
+3. Ejecuta la aplicación:
+
+    ```bash
+    npm run dev
+    ```
+
+### Funcionalidades en `featureLogin`:
+
+- **Formulario de Login**: Los usuarios deben iniciar sesión para acceder a la lista de TODOs.
+- **Autenticación mediante API**: Utiliza el servicio de autenticación de [Reqres](https://reqres.in/).
+- **Persistencia de sesión**: El token de autenticación se almacena en `localStorage` para mantener la sesión activa.
+- **Logout**: Los usuarios pueden cerrar sesión desde la barra de navegación.
+
+### Usuarios de Prueba
+
+Para probar la funcionalidad de login, utiliza los siguientes correos de prueba. Cualquier contraseña es válida.
+
+- `eve.holt@reqres.in`
+- `charles.morris@reqres.in`
+- `janet.weaver@reqres.in`
+- `emma.wong@reqres.in`
